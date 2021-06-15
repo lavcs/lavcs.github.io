@@ -1,263 +1,117 @@
-<!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Arte - uma história</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-desktop.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-	<body class="homepage">
+﻿<!DOCTYPE html>
+<html manifest="offline.appcache">
+<head>
+    <meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>New project</title>
+	
+	<!-- Standardised web app manifest -->
+	<link rel="manifest" href="appmanifest.json" />
+	
+	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
+	<meta name="HandheldFriendly" content="true" />
+	
+	<!-- Chrome for Android web app tags -->
+	<meta name="mobile-web-app-capable" content="yes" />
+	<link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
 
-		<!-- Header -->
-			<div id="header-wrapper">
-				<header id="header" class="container">
-				
-					<!-- Logo -->
-						<div id="logo">
-							<h1><a href="index.html">Arte</a></h1>
-							<span>uma história</span>
-						</div>
-					
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li class="current"><a href="index.html">Bem Vindo</a></li>
-								<li>
-									<a href="">Sobre</a>
-									<ul>
-										<li><a href="#">Ainda não sei</a></li>
-										<li><a href="#">Algo sobre arte</a></li>
-										<li>
-											<a href="">Algo belo</a>
-											<ul>
-												<li><a href="#">Arte visual</a></li>
-												<li><a href="#">Vale MB?</a></li>
-												<li><a href="#">(▀̿Ĺ̯▀̿ ̿)</a></li>
-												<li><a href="#">Obrigado</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Cuidado</a></li>
-									</ul>
-								</li>
-								<li><a href="left-sidebar.html">Pintura</a></li>
-								<li><a href="right-sidebar.html">Artistas</a></li>
-								<li><a href="no-sidebar.html">Contato</a></li>
-							</ul>
-						</nav>
-					
-				</header>
-			</div>
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html, body {
+			background: #000;
+			color: #fff;
+			overflow: hidden;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+		canvas {
+			touch-action-delay: none;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+    </style>
+	
+
+</head> 
+ 
+<body> 
+	<div id="fb-root"></div>
+	
+	<script>
+	// Issue a warning if trying to preview an exported project on disk.
+	(function(){
+		// Check for running exported on file protocol
+		if (window.location.protocol.substr(0, 4) === "file")
+		{
+			alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
+		}
+	})();
+	</script>
+	
+	<!-- The canvas must be inside a div called c2canvasdiv -->
+	<div id="c2canvasdiv">
+	
+		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+		ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
+		<canvas id="c2canvas" width="854" height="480">
+			<!-- This text is displayed if the visitor's browser does not support HTML5.
+			You can change it, but it is a good idea to link to a description of a browser
+			and provide some links to download some popular HTML5-compatible browsers. -->
+			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
+			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
+			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
+			<a href="http://www.google.com/chrome/">Google Chrome</a><br/>
+			<a href="http://www.apple.com/safari/download/">Apple Safari</a><br/>
+			<a href="http://www.google.com/chromeframe">Google Chrome Frame for Internet Explorer</a><br/></h1>
+		</canvas>
 		
-		<!-- Banner -->
-			<div id="banner-wrapper">
-				<div id="banner" class="box container">
-					<div class="row">
-						<div class="7u">
-							<h2>Arte, pinturas, retratos, tudo?  </h2>
-							<p>Este site tem o objetivo de informar sobre arte visual</p>
-						</div>
-						<div class="5u">
-							<ul>
-								<li><a href="https://lavcs.github.io/left-sidebar.html" class="button big icon fa-arrow-circle-right">Vamos Jogar</a></li>
-								<li><a href="https://lavcs.github.io/no-sidebar.html" class="button alt big icon fa-question-circle">Mais informações</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+	</div>
+	
+	<!-- Pages load faster with scripts at the bottom -->
+	
+	<!-- Construct 2 exported games require jQuery. -->
+	<script src="jquery-2.1.1.min.js"></script>
+
+
+	
+    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+	<script src="c2runtime.js"></script>
+
+    <script>
+		// Start the Construct 2 project running on window load.
+		jQuery(document).ready(function ()
+		{			
+			// Create new runtime using the c2canvas
+			cr_createRuntime("c2canvas");
+		});
 		
-		<!-- Features -->
-			<div id="features-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="4u">
-						
-							<!-- Box -->
-								<section class="box feature">
-									<a href="https://br.pinterest.com/pin/58265388914924410/" class="image featured"><img src="images/pintura2.jpg" alt="Katie Grobler – Various Jugs" /></a>
-									<div class="inner">
-										<header>
-											<h2>O que é arte visual?</h2>
-											<p>Katie Grobler – Various Jugs</p>
-										</header>
-										<p>As artes visuais representam um conjunto de manifestações artísticas como: pintura, escultura, desenho, arquitetura, artesanato, fotografia, cinema, design, arte urbana, dentre outros. Intimamente relacionado ao conceito de visualizar.</p>
-									</div>
-								</section>
-
-						</div>
-						<div class="4u">
-						
-							<!-- Box -->
-								<section class="box feature">
-									<a href="https://www.todamateria.com.br/abaporu/" class="image featured"><img src="images/pintura1.jpg" alt="Abaporu" /></a>
-									<div class="inner">
-										<header>
-											<h2>Quando surgiu artes visuais?</h2>
-											<p>Abaporu – Tarsila do Amaral </p>
-										</header>
-										<p>O conceito de artes visuais surgiu em meados de 1960, a partir da necessidade de classificar tipos de arte que lidavam com a expressão visual. Elas eram muito amplas e se classificavam em vários tópicos.</p>
-									</div>
-								</section>
-
-						</div>
-						<div class="4u">
-						
-							<!-- Box -->
-								<section class="box feature last">
-									<a href="https://virusdaarte.net/caravaggio-o-sepultamento-de-cristo/" class="image featured"><img src="images/pintura3.jpg" alt="O Sepultamento de Cristo (Caravaggio) " /></a>
-									<div class="inner">
-										<header>
-											<h2>Qual o seu objetivo?</h2>
-											<p>O sepultamento de Cristo – Caravaggio </p>
-										</header>
-										<p>A principal missão da arte visual é demonstrar a criatividade ante a beleza estática, criando expressões em formas visuais, que sejam encantadoras aos olhos humanos e expressem sentimentos e emoções.</p>
-									</div>
-								</section>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-		<!-- Main -->
-			<div id="main-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="4u">
-						
-							<!-- Sidebar -->
-								<div id="sidebar">
-									<section class="widget thumbnails">
-										<h3>Compre</h3>
-										<div class="grid">
-											<div class="row no-collapse 50%">
-												<div class="6u"><a href="https://www.singulart.com/en/artworks/harold-westerink-another-perfect-day-to-be-alive--270519" class="image fit"><img src="images/propaganda1.jpg" alt="O dia não tão perfeito" /></a></div>
-												<div class="6u"><a href="https://www.singulart.com/en/artworks/peter-nottrott-landscape-summer-way-xl-1-495149" class="image fit"><img src="images/propaganda2.jpeg" alt="Landscape: Summer Way XL 1" /></a></div>
-											</div>
-											<div class="row no-collapse 50%">
-												<div class="6u"><a href="https://www.singulart.com/en/artworks/kailin-zhao-drift-iii-207753" class="image fit"><img src="images/propaganda3.jpeg" alt="Drift III, 2019 Kailin Zhao, United States" /></a></div>
-												<div class="6u"><a href="https://www.singulart.com/en/artworks/polina-ogiy-mare-56569" class="image fit"><img src="images/propaganda4.jpeg" alt="mare, 2014 Polina Ogiy, Italy" /></a></div>
-											</div>
-										</div>
-										<a href="https://www.singulart.com/en/" class="button icon fa-file-text-o">Mais</a>
-									</section>
-								</div>
-						
-						</div>
-						<div class="8u important(collapse)">
-
-							<!-- Content -->
-								<div id="content">
-									<section class="last">
-										<h2>Gostaria de saber mais?</h2>
-										<p> Artes <strong>visuais</strong> é visceralmente ligado à concepção de visão, isto é, do ato de “ver” e “visualizar”. Isto posto, as artes visuais tendem a envolver todas as manifestações nas quais o desfrute acontece por intermédio visual.
-											Dentre as expressões que têm seu juízo analisado pela visão, é possível ainda citar o cinema e a fotografia – muito embora o primeiro também figure entre o som. Já aquelas expressões artísticas que contêm três dimensões, tal como acontece com as esculturas, tendem a ser incluídas no conjunto das artes plásticas. 
-										Um dos maiores inovadores de o que é arte visual se encontra no desenvolvimento tecnológico. Com o avanço das tecnologias e máquinas computadorizadas, a arte visual ganhou uma roupagem nova e contemporânea.<a href="https://artout.com.br/arte-visual/"> Leia mais</a>.</p>
-										<a href="https://lavcs.github.io/left-sidebar.html" class="button icon fa-arrow-circle-right">Continue Lendo</a>
-									</section>
-								</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-		<!-- Footer -->
-			<div id="footer-wrapper">
-				<footer id="footer" class="container">
-					<div class="row">
-						<div class="3u">
-						
-							<!-- Links -->
-								<section class="widget links">
-									<h3>Fontes online</h3>
-									<ul class="style2">
-										<li><a href="#">WikiArt</a></li>
-										<li><a href="#">Sgnificados Br</a></li>
-										<li><a href="#">artout</a></li>
-										<li><a href="#">Singulart</a></li>
-										<li><a href="#">Toda Matéria</a></li>
-									</ul>
-								</section>
-						
-						</div>
-						<div class="3u">
-						
-							<!-- Links -->
-								<section class="widget links">
-									<h3>Fontes online</h3>
-									<ul class="style2">
-										<li><a href="#">Mundo educação</a></li>
-										<li><a href="#">Fremplest</a></li>
-										<li><a href="#">Univeritas</a></li>
-										<li><a href="#">Wsimag</a></li>
-										<li><a href="#">Blog Z</a></li>
-									</ul>
-								</section>
-						
-						</div>
-						<div class="3u">
-						
-							<!-- Links -->
-								<section class="widget links">
-									<h3>Fontes online</h3>
-									<ul class="style2">
-										<li><a href="#">e Biografia</a></li>
-										<li><a href="#">Obrigado</a></li>
-										<li><a href="#">Brasil escola</a></li>
-										<li><a href="#">Significados.com</a></li>
-										<li><a href="#">Nullam scelerisque blandit leo</a></li>
-									</ul>
-								</section>
-						
-						</div>
-						<div class="3u">
-						
-							<!-- Contact -->
-								<section class="widget contact last">
-									<h3>Mídias sociais</h3>
-									<ul>
-										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-										<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
-									</ul>
-									<p>1234 Fictional Road<br />
-									Nashville, TN 00000<br />
-									(800) 555-0000</p>
-								</section>
-						
-						</div>
-					</div>
-					<div class="row">
-						<div class="12u">
-							<div id="copyright">
-								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</footer>
-			</div>
-
-	</body>
-</html>
+		// Pause and resume on page becoming visible/invisible
+		function onVisibilityChanged() {
+			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
+				cr_setSuspended(true);
+			else
+				cr_setSuspended(false);
+		};
+		
+		document.addEventListener("visibilitychange", onVisibilityChanged, false);
+		document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
+		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
+		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
+		
+		if (navigator.serviceWorker && navigator.serviceWorker.register)
+		{
+			// Register an empty service worker to trigger web app install banners.
+			navigator.serviceWorker.register("sw.js", { scope: "./" });
+		}
+    </script>
+</body> 
+</html> 
